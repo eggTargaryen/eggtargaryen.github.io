@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hexo</title>
+    <title>eggTargaryen</title>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="eggTargaryen,"> 
-    <meta name="description" content="利用 Hexo+ github 快速建立静态个人博客。
-安装hexo首先需要安装npm1$ brew install npm
- npm安装方法有很多，没有brew指令的可以尝试其他安装方法。
-第二步,"> 
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"> 
     <meta name="author" content="John Doe"> 
-    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="alternative" href="atom.xml" title="eggTargaryen" type="application/atom+xml"> 
     <link rel="icon" href="/img/logo.png"> 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <link rel="stylesheet" href="/css/diaspora.css">
@@ -50,11 +47,13 @@
         <div class="stuff">
             <span>十一月 01, 2018</span>
             
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/github/">github</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
 
         </div>
         <div class="content markdown">
             <p>利用 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>+ <a href="https://github.com" target="_blank" rel="noopener">github</a> 快速建立静态个人博客。</p>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><h3 id="首先需要安装npm"><a href="#首先需要安装npm" class="headerlink" title="首先需要安装npm"></a>首先需要安装npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install npm</span><br></pre></td></tr></table></figure>
+<h3 id="首先需要安装npm"><a href="#首先需要安装npm" class="headerlink" title="首先需要安装npm"></a>首先需要安装npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install npm</span><br></pre></td></tr></table></figure>
 <p> npm安装方法有很多，没有brew指令的可以尝试其他安装方法。</p>
 <h3 id="第二步，安装hexo"><a href="#第二步，安装hexo" class="headerlink" title="第二步，安装hexo"></a>第二步，安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g hexo</span><br></pre></td></tr></table></figure>
 <h3 id="第三步，创建hexo工作空间"><a href="#第三步，创建hexo工作空间" class="headerlink" title="第三步，创建hexo工作空间"></a>第三步，创建hexo工作空间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir hexoBlog</span><br><span class="line">$ <span class="built_in">cd</span> hexoBlog</span><br></pre></td></tr></table></figure>
@@ -81,7 +80,8 @@
 <h3 id="第九步，将静态网页提交到github"><a href="#第九步，将静态网页提交到github" class="headerlink" title="第九步，将静态网页提交到github"></a>第九步，将静态网页提交到github</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <p>指令执行完后过几秒钟，在浏览器输入网址访问自己的blog主页即可显示，网址即第七步自己填入的name。</p>
 <h3 id="后续要是需要添加新的文章-只要编写-md文件然后放入source-posts文件夹下，然后执行如下几条命令"><a href="#后续要是需要添加新的文章-只要编写-md文件然后放入source-posts文件夹下，然后执行如下几条命令" class="headerlink" title="后续要是需要添加新的文章 只要编写.md文件然后放入source/_posts文件夹下，然后执行如下几条命令"></a>后续要是需要添加新的文章 只要编写.md文件然后放入source/_posts文件夹下，然后执行如下几条命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>即可完成博客的更新。.md怎么写可以自行百度。</p>
+<p>即可完成博客的更新。</p>
+<h3 id="md文件怎么写？"><a href="#md文件怎么写？" class="headerlink" title="md文件怎么写？"></a>md文件怎么写？</h3><p>可以自己手写，也可以使用<a href="https://typora.io" target="_blank" rel="noopener">typora</a>来快速高效的写md文件。</p>
 <h3 id="最后，感谢invincible的技术支持。"><a href="#最后，感谢invincible的技术支持。" class="headerlink" title="最后，感谢invincible的技术支持。"></a>最后，感谢<a href="https://invincible1900.github.io" target="_blank" rel="noopener">invincible</a>的技术支持。</h3><p><img src="../../../../img/gailun.jpg" alt="cover"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
@@ -105,7 +105,7 @@
     </div>
     
         <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo"><span class="toc-number">1.</span> <span class="toc-text">安装hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先需要安装npm"><span class="toc-number">1.1.</span> <span class="toc-text">首先需要安装npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步，安装hexo"><span class="toc-number">1.2.</span> <span class="toc-text">第二步，安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步，创建hexo工作空间"><span class="toc-number">1.3.</span> <span class="toc-text">第三步，创建hexo工作空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步，初始化hexo环境"><span class="toc-number">1.4.</span> <span class="toc-text">第四步，初始化hexo环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步，利用模版生成静态网页。"><span class="toc-number">1.5.</span> <span class="toc-text">第五步，利用模版生成静态网页。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六步-optional-启动hexo本地服务，可以在本地查看网页效果。"><span class="toc-number">1.6.</span> <span class="toc-text">第六步(optional),启动hexo本地服务，可以在本地查看网页效果。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八步，创建SSH-key"><span class="toc-number">1.7.</span> <span class="toc-text">第八步，创建SSH key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第九步，将静态网页提交到github"><span class="toc-number">1.8.</span> <span class="toc-text">第九步，将静态网页提交到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后续要是需要添加新的文章-只要编写-md文件然后放入source-posts文件夹下，然后执行如下几条命令"><span class="toc-number">1.9.</span> <span class="toc-text">后续要是需要添加新的文章 只要编写.md文件然后放入source/_posts文件夹下，然后执行如下几条命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后，感谢invincible的技术支持。"><span class="toc-number">1.10.</span> <span class="toc-text">最后，感谢invincible的技术支持。</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先需要安装npm"><span class="toc-number">1.</span> <span class="toc-text">首先需要安装npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步，安装hexo"><span class="toc-number">2.</span> <span class="toc-text">第二步，安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步，创建hexo工作空间"><span class="toc-number">3.</span> <span class="toc-text">第三步，创建hexo工作空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步，初始化hexo环境"><span class="toc-number">4.</span> <span class="toc-text">第四步，初始化hexo环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步，利用模版生成静态网页。"><span class="toc-number">5.</span> <span class="toc-text">第五步，利用模版生成静态网页。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六步-optional-启动hexo本地服务，可以在本地查看网页效果。"><span class="toc-number">6.</span> <span class="toc-text">第六步(optional),启动hexo本地服务，可以在本地查看网页效果。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八步，创建SSH-key"><span class="toc-number">7.</span> <span class="toc-text">第八步，创建SSH key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第九步，将静态网页提交到github"><span class="toc-number">8.</span> <span class="toc-text">第九步，将静态网页提交到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后续要是需要添加新的文章-只要编写-md文件然后放入source-posts文件夹下，然后执行如下几条命令"><span class="toc-number">9.</span> <span class="toc-text">后续要是需要添加新的文章 只要编写.md文件然后放入source/_posts文件夹下，然后执行如下几条命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#md文件怎么写？"><span class="toc-number">10.</span> <span class="toc-text">md文件怎么写？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后，感谢invincible的技术支持。"><span class="toc-number">11.</span> <span class="toc-text">最后，感谢invincible的技术支持。</span></a></li></ol>
         </div>
     
 </div>
