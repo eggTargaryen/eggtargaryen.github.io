@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>eggTargaryen</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="eggTargaryen,"> 
+    <meta name="description" content="个人简介：1994-2013:呆在山东潍坊​        在这里长大，读完小初高，还有大学预科班，哈哈。        
+2013-2017: 呆在湖北武汉​        在wuli度过了马马虎,"> 
+    <meta name="author" content="eggTargaryen"> 
+    <link rel="alternative" href="atom.xml" title="eggTargaryen" type="application/atom+xml"> 
+    <link rel="icon" href="/img/logo.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Batch Normalization</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Batch Normalization</h1>
+        <div class="stuff">
+            <span>十一月 11, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Batch-Normalization/">Batch Normalization</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="1-Batch-Normalization论文翻译"><a href="#1-Batch-Normalization论文翻译" class="headerlink" title="1. Batch Normalization论文翻译"></a>1. Batch Normalization论文翻译</h1><p><a href="https://blog.csdn.net/Quincuntial/article/details/78124582?locationNum=4&amp;fps=1" target="_blank" rel="noopener">中英文对照</a></p>
+<p><a href="http://noahsnail.com/2017/09/04/2017-9-4-Batch%20Normalization论文翻译——中文版/" target="_blank" rel="noopener">中文版</a></p>
+<p><a href="https://arxiv.org/pdf/1502.03167.pdf" target="_blank" rel="noopener">论文</a></p>
+<h1 id="2-简单介绍"><a href="#2-简单介绍" class="headerlink" title="2. 简单介绍"></a>2. 简单介绍</h1><p>神经网络学习过程本质就是为了：学习数据分布，一旦训练数据与测试数据的分布不同，那么网络的泛化能力也大大降低，所以需要使用输入数据归一化方法，使训练数据与测试数据的分布相同。</p>
+<p><a href="https://blog.csdn.net/hjimce/article/details/50866313" target="_blank" rel="noopener">还是看别人的博客吧😢</a></p>
+<p><strong>关键点：BN层要在激活函数之前。</strong></p>
+<p><strong>关键点：rnn中bn和这个不一样的。</strong></p>
+<p><strong>关键点</strong>：将x的分布归一化，并将分布拉到一个合适的范围内。可以防止梯度消失或者爆炸。</p>
+<p><strong>关键点</strong>：并不是所有任务都需要bn层。</p>
+<p>疑问：为什么bn在归一化后又做了scale and shift操作？</p>
+<p>文章的意思是为了尽可能保证输出特征的数据分布与原来一致，但是这样不就打回原形了吗？怎么起到normalization的效果呢？</p>
+<p><a href="https://www.zhihu.com/question/55917730" target="_blank" rel="noopener">知乎上有人这么解释</a>：</p>
+<p>“ 这就是Batch Normalization强大的地方，如果只做normalize在某些情况下会出现问题，比如对象是Sigmoid函数的output，而且output是分布在Sigmoid函数的两侧，normalize会强制把output分布在Sigmoid函数的中间的非饱和区域，这样会导致这层网络所学习到的特征分布被normalize破坏。而上面算法的最后一步，scale and shift可以令零均值单位方差的分布（normalize之后的分布）通过调节gamma和beta变成任意更好的分布（对于喂给下一层网络来说）。因为这个gamma和beta是在训练过程中可以学习得到参数。</p>
+<p>最极端的情况就是当gamma = sqrt(var(x)) 和 beta = mean(x)的时候，就是题主所说的“打回原形”了，这种原来的论文中，Sergey说的是至少能够使特征分布回到normalize之前的分布，并不是每一层学习到的gamma和beta都会抵消之前的normalize的操作。我的理解是完整的BN通过normalize和scale &amp; shift两步的操作提供更高的flexibility，对于每层的output既可以是零均值单位方差的分布，也可以是分布于Sigmoid两端饱和区域的分布，或者其他任意的分布。”</p>
+<p><a href="https://www.zhihu.com/question/38102762/answer/85238569" target="_blank" rel="noopener">还有人这么说</a></p>
+<p>顾名思义，batch normalization嘛，就是“批规范化”咯。Google在ICML文中描述的非常清晰，即在每次SGD时，通过mini-batch来对相应的activation做规范化操作，使得结果（输出信号各个维度）的均值为0，方差为1. 而最后的“scale and shift”操作则是为了让因训练所需而“刻意”加入的BN能够有可能还原最初的输入（即当<img src="https://www.zhihu.com/equation?tex=%5Cgamma%5E%7B%28k%29%7D%3D%5Csqrt%7BVar%5Bx%5E%7B%28k%29%7D%5D%7D%2C+%5Cbeta%5E%7B%28k%29%7D%3DE%5Bx%5E%7B%28k%29%7D%5D" alt="\gamma^{(k)}=\sqrt{Var[x^{(k)}]}, \beta^{(k)}=E[x^{(k)}]">），从而保证整个network的capacity。（有关capacity的解释：实际上BN可以看作是在原模型上加入的“新操作”，这个新操作很大可能会改变某层原来的输入。当然也可能不改变，不改变的时候就是“还原原来输入”。如此一来，既可以改变同时也可以保持原输入，那么模型的容纳能力（capacity）就提升了。）</p>
+<p><a href="https://www.zhihu.com/question/38102762/answer/84238772" target="_blank" rel="noopener">还有人说</a></p>
+<p>用点比较俏皮的语言简单说说个人理解，学术上可能有点过于俏皮：</p>
+<ol>
+<li>批训练会带来梯度之间的互相竞争，竞争有好处，诸如避开局部优，然而也带来效率上的问题，比如10个batch，前8个要求z方向+0.1，后两个要求z方向-0.4，最终有效梯度为0.8-0.4*2=0，这种竞争消耗着效率。</li>
+<li>对于深层模型，越底层，越到训练后期，这种batch梯度之间的方向竞争会变得厉害（这是统计上的，某个时刻不一定成立），类似饱和。深层模型都用不着坐等梯度衰减，光是batch方向感就乱了训练效率。如果将不同batch看成不同的人，本来要求适当的竞争回避局部优，结果导致恶性竞争乱了大局。</li>
+<li>改变措施很多，如在优化中引入不同batch梯度的记忆，包括强度的记忆（rmsprop）和以及强度和方向的记忆（adam），这样可以利用前面一些batch的长处或者某种统计倾向去修正后面的batch的梯度。这些方法，都是要求后来人忍让前面的人从而规范的，是出了事才去约束竞争的方法，是局部以及某个小训练时刻的动态调整，不是全局调整。</li>
+<li>BN算一种全局的调整（实际算法需要动态更新一些参数，只是因为算不动而做，不是算法思想本身需要）。虽然BN是对每层的输入进行线性变换，但这完全可以等价到该层的参数变换去，于是，抽取掉每时每刻都不均一的输入方差和中心，统一换用训练调整出来的方差和中心（gamma和beta这些），直观上，一定程度限制参数在不同batch上瞎跑，防止梯度方向竞争进入”白热化“。俏皮点说，类似是规范了行业标准，发现batch之间的恶性方向竞争会弱化。</li>
+<li>但是，BN仍然不是最好的全局调整，最好的应该是随时都能保证参数的分布在不同层都有可比的标准，就是说：行业规范及早定，定好就不要频繁的动态变更。这种思考，便是Natural Gradient，Natural Gradient在ML中相当于引入大约束到损失函数，这个约束规范并控制着参数的分布保持不变，也有几何上的理解，具体参考：<a href="https://link.zhihu.com/?target=http%3A//arxiv.org/abs/1301.3584" target="_blank" rel="noopener">http://arxiv.org/abs/1301.3584</a>，<a href="https://link.zhihu.com/?target=http%3A//arxiv.org/abs/1303.0818" target="_blank" rel="noopener">http://arxiv.org/abs/1303.0818</a>。近来NIPS上有些研究声称利用Natural Gradient思想到深层神经网络，其某种近似类似BN，但是效果会比BN强一点。<a href="https://link.zhihu.com/?target=http%3A//arxiv.org/abs/1507.00210" target="_blank" rel="noopener">http://arxiv.org/abs/1507.00210</a>。</li>
+<li>BN大法好，但可能不是最好！猜测一下，这些看起来一点也不漂亮的调参是不是都是trick，黑魔法背后会不会有非常朴素干净统一的理解呢？蛤～</li>
+</ol>
+<p><strong>我觉得吧</strong>，可能是是因为（我瞎猜的），本来x的均值和方差可能过大（或者过小），这样下次再得到一个过小（或者过大）的x的时候将会使得下一层网络的权重w难以学习（或者说稳定下来），只经过normalize的话，还起不到一个将x拉到一个合适的区间（比如[-1,1]）的目标，但是乘上一个gamma就可以了。同理，在normalize之前，x可能全是正数（或者负数），在经过normalize之后就变成一半正，一半负了，显然这不是x的数据分布，那么通过加上beta就可以使得x恢复到之前的数据分布，这样使得所有数据在一个合适的区间（比如[-1,1]）并保持原有的数据分布附近，就可以加速网络的训练了。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=1321385655">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="389843d8e8f4a64fb373" data-cs="4aa2f626551b60a563b935cf7f7c5273b68b28aa" data-r="blogissue" data-o="eggtargaryen" data-a="eggtargaryen" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
