@@ -22,108 +22,66 @@
 </html>
 <body class="loading">
     <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://github.com/eggTargaryen" title="Github" target="_blank" rel="noopener">Github</a>
-        </li>
-        
-    </ul>
-    <!--
-    <div style="margin:0 auto;width:800px;">
-        <div class="eggTargaryenstyle">
-        
-    <div id="gitalk2-container" class="comment link" data-ae="false" data-ci="3218e988fbd1ecdd23d1" data-cs="87f1c5580de85f4cb3315562c514941f86c06f03" data-r="blogissue" data-o="eggtargaryen" data-a="eggtargaryen" data-d="false">查看留言</div>
-
-
-        </div>
-    </div>
-    -->
-    <p id="copyright">
-        &copy; 2018 eggTargaryen.
-        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
-        by Fechin
-    </p>
-</div>
-
-<div id="container">
-    
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/firebloodhousepage.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewbox="0 0 2880 1620" height="100%" preserveaspectratio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">神经网络中过拟合的解决方法</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
         <div>
-
-            <div class="icon-menu switchmenu"></div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
         </div>
     </div>
-    
-    <div id="post0">
-        <p>十一月 03, 4396</p>
-        <h2><a href="/4396/11/03/introduce/" title="About Author" class="posttitle">About Author</a></h2>
-        <p class="summary">个人简介：1994-2013:呆在山东潍坊​        在这里长大，读完小初高，还有大学预科班，哈哈。    ...</p>
-    </div>
-    
+    <div class="scrollbar"></div>
 </div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">神经网络中过拟合的解决方法</h1>
+        <div class="stuff">
+            <span>十一月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/overfitting/">overfitting</a></li></ul>
 
-    <div id="primary">
+
+        </div>
+        <div class="content markdown">
+            <p>overfitting怎么解决？</p>
+<p>主要方案有三种：<strong>dropout， regularization， batch normalization</strong>；</p>
+<p><strong>regularization:</strong></p>
+<p>通过将参数w的值减小，从而减小模型的复杂度来防止过拟合。</p>
+<p>细节可参考<a href="https://blog.csdn.net/heyongluoyao8/article/details/49429629" target="_blank" rel="noopener">这里</a>其实讲的一般，随便看看。</p>
+<p><strong>dropout:</strong></p>
+<p>主要通过随机的使部分神经元的输入置零，从而阻断部分神经元之间的协同作用来防止过拟合。</p>
+<p>可参考<a href="https://blog.csdn.net/Left_Think/article/details/77684087" target="_blank" rel="noopener">这里</a>.</p>
+<p><strong>batch normalization：</strong></p>
+<p>这个很难说，有人说：<strong>过拟合其实很大程度上是因为某一系列feature值过小，导致其拟合的变换矩阵参数w的值过大</strong>。而bn刚好可以将feature平移和拉伸，所以可以避免feature过小从而避免过拟合。</p>
+<p>from：<a href="https://www.zhihu.com/question/275788133" target="_blank" rel="noopener">知乎</a>。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=31134451">
+            </audio>
+            
+        </div>
         
-<div class="post">
-    <a href="/2018/11/05/svm/" title="支持向量机——原理+使用">
-        <img src="/img/qinwang.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 05, 2018</p>
-        <h3><a href="/2018/11/05/svm/" title="支持向量机——原理+使用" class="posttitle">支持向量机——原理+使用</a></h3>
-        <p>1.  svm原理来自知乎，讲的巨详细，是我看过的所有讲svm里讲的最清楚的，没有之一。果然是教模式识别的老师写的，part1,part2.
-2.  sk...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/11/03/forwardandbackward/" title="神经网络中的前向传播和反向传播-数学推导。">
-        <img src="/img/xiaomeigui.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 03, 2018</p>
-        <h3><a href="/2018/11/03/forwardandbackward/" title="神经网络中的前向传播和反向传播-数学推导。" class="posttitle">神经网络中的前向传播和反向传播-数学推导。</a></h3>
-        <p>本来想自己写一个详细的教程，但找了找发现网上有很详细的介绍，讲的非常清楚，那我就不重复造轮子了。
-1.斯坦福CS231N课时10:小姐姐讲的很详细，👏点...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/11/01/howtobuildwebsite/" title="如何利用github建立个人博客">
-        <img src="/img/longma.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 01, 2018</p>
-        <h3><a href="/2018/11/01/howtobuildwebsite/" title="如何利用github建立个人博客" class="posttitle">如何利用github建立个人博客</a></h3>
-        <p>利用 Hexo+ github 快速建立静态个人博客。
-首先需要安装npm1$ brew install npm
- npm安装方法有很多，没有brew指令...</p>
-    </div>
-</div>
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="389843d8e8f4a64fb373" data-cs="4aa2f626551b60a563b935cf7f7c5273b68b28aa" data-r="blogissue" data-o="eggtargaryen" data-a="eggtargaryen" data-d="false">查看评论</div>
 
 
     </div>
     
 </div>
-<div id="preview"></div>
 
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
