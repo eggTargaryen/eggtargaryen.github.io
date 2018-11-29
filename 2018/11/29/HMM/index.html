@@ -22,8 +22,71 @@
 </html>
 <body class="loading">
     <div id="loader"></div>
-    
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">隐马尔可夫模型</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">隐马尔可夫模型</h1>
+        <div class="stuff">
+            <span>十一月 29, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/HMM/">HMM</a></li></ul>
 
+
+        </div>
+        <div class="content markdown">
+            <h1 id="什么样的问题需要HMM模型？"><a href="#什么样的问题需要HMM模型？" class="headerlink" title="什么样的问题需要HMM模型？"></a>什么样的问题需要HMM模型？</h1><p>​    基于序列的问题，比如时间序列，状态序列。</p>
+<p>​    🌰：语音识别，NLP</p>
+<h1 id="什么是隐马尔可夫模型？"><a href="#什么是隐马尔可夫模型？" class="headerlink" title="什么是隐马尔可夫模型？"></a>什么是隐马尔可夫模型？</h1><p>​    可参考《数学之美》by 吴军 第五章，简单易懂。</p>
+<p>​    <a href="https://zh.wikipedia.org/wiki/隐马尔可夫模型" target="_blank" rel="noopener">维基百科</a></p>
+<p>​    <a href="https://zhuanlan.zhihu.com/p/29938926" target="_blank" rel="noopener">知乎</a></p>
+<p>​    <a href="如何用简单易懂的例子解释隐马尔可夫模型？ - henry的回答 - 知乎
+https://www.zhihu.com/question/20962240/answer/64187492">知乎</a></p>
+<p>​    这个其实很难解释清楚，最好通过一个例子。</p>
+<h1 id="隐马尔可夫模型有三个基本问题："><a href="#隐马尔可夫模型有三个基本问题：" class="headerlink" title="隐马尔可夫模型有三个基本问题："></a>隐马尔可夫模型有三个基本问题：</h1><p>​    1.给定一个模型，如何计算某个特定的输出序列的概率；</p>
+<p>​    2.给定一个模型和某个特定的输出序列，如何找到最可能产生这个输出的状态序列；</p>
+<p>​    3.给定足够量的观测数据，如何估计隐马尔可夫模型的参数。</p>
+<h1 id="HMM与RNN有什么关系？"><a href="#HMM与RNN有什么关系？" class="headerlink" title="HMM与RNN有什么关系？"></a>HMM与RNN有什么关系？</h1><p>​    二者结构很像，都是通过隐藏状态的演化来刻画序列间的依赖关系。</p>
+<p>​    HMM和RNN的本质区别是RNN没有马尔可夫假设，可以考虑很长的历史信息。另外HMM本质是一个概率模型，而RNN不是。</p>
+<p>​    <strong>马尔可夫假设：</strong>当前隐藏状态h(t)的概率分布只与前一个隐藏状态h(t-1)有关。</p>
+<p>​    另外HMM还有一个假设。</p>
+<p>​    <strong>独立输出假设：</strong>可见状态s(t)的概率分布仅与h(t)有关。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=31134451">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="389843d8e8f4a64fb373" data-cs="4aa2f626551b60a563b935cf7f7c5273b68b28aa" data-r="blogissue" data-o="eggtargaryen" data-a="eggtargaryen" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
