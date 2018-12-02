@@ -57,13 +57,15 @@
 <p>如果一个数据集已经被LinearSVM求解，那么往这个数据集里面增加或者删除一些数据点，并不一定会改变重新求解的LinearSVM平面。</p>
 <p>而LR中每一个数据点对分类平面都有影响。也可以说，LR的解是受数据本身分布影响的。</p>
 <p>区别2：</p>
-<p>从目标函数来看，区别在于逻辑回归采用的是交叉熵，svm采用的是hinge loss。</p>
+<p>从目标函数来看，区别在于逻辑回归采用的是交叉熵，svm采用的是hinge loss（其实就是拉格朗日函数）。</p>
 <p>区别3:</p>
 <p>SVM的损失函数就自带正则，这就是为什么SVM是结构风险最小化算法的原因！！！而LR必须另外在损失函数上添加正则项！！！</p>
 <p><strong>相同点：</strong><br>1，LR和SVM都是分类算法。<br>2，如果不考虑核函数，LR和SVM都是线性分类算法，即分类决策面都是线性的。<br>3，LR和SVM都是监督学习算法。</p>
+<p>参考：<a href="http://www.cnblogs.com/zhizhan/p/5038747.html" target="_blank" rel="noopener">博客园</a></p>
 <p><strong>LR的推导，这个很重要：</strong></p>
 <p>首先要清楚什么是<strong><a href="https://zhuanlan.zhihu.com/p/26614750" target="_blank" rel="noopener">极大似然估计</a></strong></p>
 <p>然后，算了，不看了，看懂了也回答不上来😭。</p>
+<p><strong>继续搞lr的推导</strong></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

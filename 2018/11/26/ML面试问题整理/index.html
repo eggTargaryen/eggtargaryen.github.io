@@ -66,17 +66,21 @@
 <p>之前bp可以看一下，这里一个<a href="https://zhuanlan.zhihu.com/p/39314998" target="_blank" rel="noopener">简化版本</a>。</p>
 <p>4、<a href="https://www.zhihu.com/question/34878706" target="_blank" rel="noopener">LSTM如何来避免梯度弥散和梯度爆炸？</a></p>
 <p>5、几种优化函数比较，<a href="https://zhuanlan.zhihu.com/p/32230623" target="_blank" rel="noopener">知乎</a></p>
-<p>sgd三宗罪：速度慢，会在沟壑两边持续震荡，容易陷入局部最优解。</p>
-<p>sgd with Momentum：引入一阶动量，抑制了sgd震荡的问题。</p>
-<p>sgd with Nesterov Acceleration:使sgd可以跳出局部最优解。</p>
-<p>AdaGrad：引入二阶动量，使得学习率变为自适应的。但容易造成训练提前终止。</p>
-<p>AdaDelta：改进了二阶动量，避免了AdaGrad训练提前终止的问题。</p>
-<p>Adam：同时引入了一阶动量和二阶动量。</p>
-<p>Nadam：在Adam的基础上引入了Nesterov，使之跳出局部最优解。</p>
-<p><a href="http://ruder.io/optimizing-gradient-descent/index.html" target="_blank" rel="noopener">其他参考</a></p>
+<p>​    sgd三宗罪：速度慢，会在沟壑两边持续震荡，容易陷入局部最优解。</p>
+<p>​    sgd with Momentum：引入一阶动量，抑制了sgd震荡的问题。</p>
+<p>​    sgd with Nesterov Acceleration:使sgd可以跳出局部最优解。</p>
+<p>​    AdaGrad：引入二阶动量，使得学习率变为自适应的。但容易造成训练提前终止。</p>
+<p>​    AdaDelta：改进了二阶动量，避免了AdaGrad训练提前终止的问题。</p>
+<p>​    Adam：同时引入了一阶动量和二阶动量。</p>
+<p>​    Nadam：在Adam的基础上引入了Nesterov，使之跳出局部最优解。</p>
+<p>​    <a href="http://ruder.io/optimizing-gradient-descent/index.html" target="_blank" rel="noopener">其他参考</a></p>
 <p>6、<a href="https://zhuanlan.zhihu.com/p/32262540" target="_blank" rel="noopener">Adam那么棒，为什么还对SGD念念不忘 (2)—— Adam的两宗罪</a></p>
-<p>罪1:可能不收敛</p>
-<p>罪2:可能错过全局最优解。</p>
+<p>​    罪1:可能不收敛</p>
+<p>​    罪2:可能错过全局最优解。</p>
+<p>7、讲一下pooling的作用， 为什么max pooling要更常用？哪些情况下，average pooling比max pooling更合适？</p>
+<p>​    pooling目的是为了保持某种不变性（旋转、<strong>平移</strong>、伸缩等）</p>
+<p>​    根据相关理论，特征提取的误差主要来自两个方面：（1）邻域大小受限造成的估计值方差增大；（2）卷积层参数误差造成估计均值的偏移。一般来说，average-pooling能减小第一种误差，更多的保留图像的背景信息，max-pooling能减小第二种误差，更多的保留纹理信息。</p>
+<p>​    <a href="https://www.di.ens.fr/willow/pdfs/cvpr10c.pdf" target="_blank" rel="noopener">参考论文 Learning Mid-Level Features For Recognition</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

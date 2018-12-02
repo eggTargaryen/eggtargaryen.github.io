@@ -62,6 +62,7 @@
 <p><strong>关键点：rnn中bn和这个不一样的。</strong></p>
 <p><strong>关键点</strong>：将x的分布归一化，并将分布拉到一个合适的范围内。可以防止梯度消失或者爆炸。</p>
 <p><strong>关键点</strong>：并不是所有任务都需要bn层。</p>
+<p><strong>发现一个写的最好的，哈哈，就看这个了<a href="https://zhuanlan.zhihu.com/p/34879333" target="_blank" rel="noopener">知乎</a></strong></p>
 <p>疑问：为什么bn在归一化后又做了scale and shift操作？</p>
 <p>文章的意思是为了尽可能保证输出特征的数据分布与原来一致，但是这样不就打回原形了吗？怎么起到normalization的效果呢？</p>
 <p><a href="https://www.zhihu.com/question/55917730" target="_blank" rel="noopener">知乎上有人这么解释</a>：</p>

@@ -54,6 +54,15 @@
         </div>
         <div class="content markdown">
             <h1 id="1-svm原理"><a href="#1-svm原理" class="headerlink" title="1.  svm原理"></a>1.  svm原理</h1><p>来自知乎，讲的巨详细，是我看过的所有讲svm里讲的最清楚的，没有之一。果然是教模式识别的老师写的，<a href="https://zhuanlan.zhihu.com/p/24638007" target="_blank" rel="noopener">part1</a>,<a href="https://zhuanlan.zhihu.com/p/29865057" target="_blank" rel="noopener">part2</a>.</p>
+<h3 id="KKT条件："><a href="#KKT条件：" class="headerlink" title="KKT条件："></a>KKT条件：</h3><p>​    <a href="https://zhuanlan.zhihu.com/p/26514613" target="_blank" rel="noopener">知乎</a></p>
+<p>KKT条件是在不等式约束条件下，判断拉格朗日函数的解是否为最优解的必要条件。</p>
+<p>​    <a href="https://blog.csdn.net/xianlingmao/article/details/7919597" target="_blank" rel="noopener">csdn</a></p>
+<h3 id="核函数："><a href="#核函数：" class="headerlink" title="核函数："></a>核函数：</h3><p>​    通过核函数，支持向量机可以将特征向量映射到更高维的空间中，使得原本线性不可分的数据在映射之后的空间中变得线性可分。</p>
+<p>​    在实现时，不需要对特征向量进行映射，而是使用核函数代替（替换）两个特征向量映射后的内积。常用的有，线性核，多项式核，高斯核，sigmoid核。</p>
+<p><img src="http://www.zhihu.com/equation?tex=κ%28x_i%2Cx_j+%29+%3D+%E3%80%88ϕ%28x_i+%29%2Cϕ%28x_j+%29〉+%3D+ϕ%28x_i+%29%5ET+ϕ%28x_j+%29" alt="公式"></p>
+<p><img src="https://pic1.zhimg.com/v2-63d3e66a8b7d273dac86bdcaddccc624_b.jpg" alt="公式"></p>
+<p>​    <a href="https://zhuanlan.zhihu.com/p/30299603" target="_blank" rel="noopener">知乎</a></p>
+<p>​    <a href="https://zhuanlan.zhihu.com/p/37189815" target="_blank" rel="noopener">知乎</a></p>
 <h1 id="2-sklearn-svm的使用"><a href="#2-sklearn-svm的使用" class="headerlink" title="2.  sklearn.svm的使用"></a>2.  sklearn.svm的使用</h1><p>svm即可以用来分类也可以用来回归。</p>
 <h2 id="2-1-svm分类"><a href="#2-1-svm分类" class="headerlink" title="2.1  svm分类"></a>2.1  svm分类</h2><p>基本用法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from sklearn import svm</span><br><span class="line">&gt;&gt;&gt; X = [[0, 0], [1, 1]]</span><br><span class="line">&gt;&gt;&gt; y = [0, 1]</span><br><span class="line">&gt;&gt;&gt; clf = svm.SVC(gamma=&apos;scale&apos;)</span><br><span class="line">&gt;&gt;&gt; clf.fit(X, y)  </span><br><span class="line">SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,decision_function_shape=&apos;ovr&apos;, degree=3, gamma=&apos;scale&apos;, kernel=&apos;rbf&apos;,max_iter=-1, probability=False, random_state=None, shrinking=True,tol=0.001, verbose=False)</span><br><span class="line">&gt;&gt;&gt; clf.predict([[2., 2.]])</span><br><span class="line">array([1])</span><br></pre></td></tr></table></figure>
