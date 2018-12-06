@@ -54,6 +54,9 @@
         </div>
         <div class="content markdown">
             <h1 id="1-svm原理"><a href="#1-svm原理" class="headerlink" title="1.  svm原理"></a>1.  svm原理</h1><p>来自知乎，讲的巨详细，是我看过的所有讲svm里讲的最清楚的，没有之一。果然是教模式识别的老师写的，<a href="https://zhuanlan.zhihu.com/p/24638007" target="_blank" rel="noopener">part1</a>,<a href="https://zhuanlan.zhihu.com/p/29865057" target="_blank" rel="noopener">part2</a>.</p>
+<p>在得到不等式约束条件下的极值时，可以用拉格朗日函数求解，只需对n个变量分别求导，并令导等于0即可，但是求出来的解必须满足kkt条件（a&gt;=0,g(x)&lt;=0;a*g(x)=0）,为什么呢，因为当不等式约束条件g(x)=0,时，不等式约束条件就变成了等式约束条件，此时解在g(x)=0上面。当g(x)&lt;0时，解在g(x)空间内，就相当于没有约束(图在上面的链接里)，此时必须令a=0；否则，构造的拉格朗日函数就多了一个不必要的项，得到的解就不是最优解。</p>
+<p>所以解必须满足kkt条件。</p>
+<p>如果不满足呢，就说明你的解并不是全局最优解（因为你在不等式约束条件下构造的拉格朗日函数其实是，默认解在g(x)=0上的，所以，不满足kkt就说明解不在边界上，而在内部，就需要令某个获某几个从拉格朗日函数上出去这个g(x)，即令ai=0），就需要令ai=0，然后再来求一遍最优解即可。</p>
 <h3 id="KKT条件："><a href="#KKT条件：" class="headerlink" title="KKT条件："></a>KKT条件：</h3><p>​    <a href="https://zhuanlan.zhihu.com/p/26514613" target="_blank" rel="noopener">知乎</a></p>
 <p>KKT条件是在不等式约束条件下，判断拉格朗日函数的解是否为最优解的必要条件。</p>
 <p>​    <a href="https://blog.csdn.net/xianlingmao/article/details/7919597" target="_blank" rel="noopener">csdn</a></p>
