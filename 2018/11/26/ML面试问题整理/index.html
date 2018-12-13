@@ -53,7 +53,13 @@
 
         </div>
         <div class="content markdown">
-            <p>机器学习：</p>
+            <p>编程题 和基础题：</p>
+<p>1.链表 反转：<a href="https://blog.csdn.net/eggTargaryen/article/details/84990008" target="_blank" rel="noopener">csdn</a></p>
+<p>2.前序遍历，中序遍历，后序遍历的区别是根节点。</p>
+<p>​    前序遍历：根左右</p>
+<p>​    中序遍历：左根右</p>
+<p>​    后序遍历：左右根 </p>
+<p>机器学习：</p>
 <p>1、bias与variance的含义？</p>
 <p><a href="https://zhuanlan.zhihu.com/p/44872686" target="_blank" rel="noopener">答案</a></p>
 <p>2、<a href="https://zhuanlan.zhihu.com/p/42740654" target="_blank" rel="noopener">Adaboost、GBDT与XGBoost的区别</a></p>
@@ -85,6 +91,13 @@
 <p>​    pooling目的是为了保持某种不变性（旋转、<strong>平移</strong>、伸缩等）</p>
 <p>​    根据相关理论，特征提取的误差主要来自两个方面：（1）邻域大小受限造成的估计值方差增大；（2）卷积层参数误差造成估计均值的偏移。一般来说，average-pooling能减小第一种误差，更多的保留图像的背景信息，max-pooling能减小第二种误差，更多的保留纹理信息。</p>
 <p>​    <a href="https://www.di.ens.fr/willow/pdfs/cvpr10c.pdf" target="_blank" rel="noopener">参考论文 Learning Mid-Level Features For Recognition</a></p>
+<p>8、几种激活函数的比较<a href="https://blog.csdn.net/guorongronghe/article/details/70174476" target="_blank" rel="noopener">csdn</a></p>
+<p>主要是sigmoid，relu，leakyrelu</p>
+<p>sigmoid：优点：输出在01之间，相当于输出了 一个概率</p>
+<p>​        缺点 ：容易产生梯度 消失 ，应为 导数最大也就0.25，一层乘一个这么小的数，层数多了梯度 消失 很正常，可以看 梯度 消失的 原因。</p>
+<p>relu：优点：方便计算，因为导数是常数。收敛速度快。缓解了 梯度消失的问题</p>
+<p>缺点：可能出现神经元死亡，权重无法更新 的情况。</p>
+<p>lrelu：优点：避免了relu的神经元死亡 的现象。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
