@@ -53,7 +53,31 @@
 
         </div>
         <div class="content markdown">
-            <h1 id="编程题-和基础题："><a href="#编程题-和基础题：" class="headerlink" title="编程题 和基础题："></a>编程题 和基础题：</h1><p>1.链表 反转：<a href="https://blog.csdn.net/eggTargaryen/article/details/84990008" target="_blank" rel="noopener">csdn</a></p>
+            <h1 id="数字图像处理"><a href="#数字图像处理" class="headerlink" title="数字图像处理"></a>数字图像处理</h1><p>1、 Canny边缘检测算法：<a href="https://zhuanlan.zhihu.com/p/42122107" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42122107</a></p>
+<p>Sobel算子，其主要用于边缘检测，在技术上它是以离散型的差分算子，用来运算图像亮度函数的梯度的近似值， Sobel算子是典型的基于一阶导数的边缘检测算子，由于该算子中引入了类似局部平均的运算，因此对噪声具有平滑作用，能很好的消除噪声的影响。Sobel算子对于象素的位置的影响做了加权，与Prewitt算子、Roberts算子相比因此效果更好。Sobel算子包含两组3x3的矩阵，分别为横向及纵向模板，将之与图像作平面卷积，即可分别得出横向及纵向的亮度差分近似值。缺点是Sobel算子并没有将图像的主题与背景严格地区分开来，换言之就是Sobel算子并没有基于图像灰度进行处理，由于Sobel算子并没有严格地模拟人的视觉生理特征，所以提取的图像轮廓有时并不能令人满意。</p>
+<p><strong>Roberts算子</strong> 罗伯茨算子、Roberts算子是一种最简单的算子，是一种利用局部差分算子寻找边缘的算子，他采用对角线方向相邻两象素之差近似梯度幅值检测边缘。检测垂直边缘的效果好于斜向边缘，定位精度高，对噪声敏感,无法抑制噪声的影响。1963年，Roberts提出了这种寻找边缘的算子。Roberts边缘算子是一个2x2的模板，采用的是对角方向相邻的两个像素之差。从图像处理的实际效果来看，边缘定位较准，对噪声敏感。适用于边缘明显且噪声较少的图像分割。Roberts边缘检测算子是一种利用局部差分算子寻找边缘的算子,Robert算子图像处理后结果边缘不是很平滑。经分析，由于Robert算子通常会在图像边缘附近的区域内产生较宽的响应，故采用上述算子检测的边缘图像常需做细化处理，边缘定位的精度不是很高。</p>
+<p><strong>Prewitt算子</strong> Prewitt算子是一种一阶微分算子的边缘检测，利用像素点上下、左右邻点的灰度差，在边缘处达到极值检测边缘，去掉部分伪边缘，对噪声具有平滑作用 。其原理是在图像空间利用两个方向模板与图像进行邻域卷积来完成的，这两个方向模板一个检测水平边缘，一个检测垂直边缘。经典Prewitt算子认为：凡灰度新值大于或等于阈值的像素点都是边缘点。即选择适当的阈值T，若P(i,j)≥T，则(i,j)为边缘点，P(i,j)为边缘图像。这种判定是欠合理的，会造成边缘点的误判，因为许多噪声点的灰度值也很大，而且对于幅值较小的边缘点，其边缘反而丢失了。Prewitt算子对噪声有抑制作用，抑制噪声的原理是通过像素平均，但是像素平均相当于对图像的低通滤波，所以Prewitt算子对边缘的定位不如Roberts算子。因为平均能减少或消除噪声，Prewitt梯度算子法就是先求平均，再求差分来求梯度。该算子与Sobel算子类似，只是权值有所变化，但两者实现起来功能还是有差距的，据经验得知Sobel要比Prewitt更能准确检测图像边缘​    </p>
+<p>2、中值滤波和均值滤波，高斯滤波</p>
+<p>​    在<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86" target="_blank" rel="noopener">图像处理</a>中，在进行如<a href="https://zh.wikipedia.org/wiki/%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B" target="_blank" rel="noopener">边缘检测</a>这样的进一步处理之前，通常需要首先进行一定程度的<a href="https://zh.wikipedia.org/wiki/%E9%99%8D%E5%99%AA" target="_blank" rel="noopener">降噪</a>。<strong>中值滤波</strong>是一种非线性<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E6%BB%A4%E6%B3%A2%E5%99%A8" target="_blank" rel="noopener">数字滤波器</a>技术，经常用于去除图像或者其它信号中的<a href="https://zh.wikipedia.org/wiki/%E9%9B%9C%E8%A8%8A_(%E9%80%9A%E8%A8%8A%E5%AD%B8" target="_blank" rel="noopener">噪声</a>)。这个设计思想就是检查输入信号中的采样并判断它是否代表了信号，使用奇数个采样组成的观察窗实现这项功能。观察窗口中的数值进行排序，位于观察窗中间的<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%80%BC" target="_blank" rel="noopener">中值</a>作为输出。然后，丢弃最早的值，取得新的采样，重复上面的计算过程。</p>
+<p>​    均值滤波也称为线性滤波，其采用的主要方法为邻域平均法。线性滤波的基本原理是用均值代替原图像中的各个像素值，即对待处理的当前像素点（x，y），选择一个模板，该模板由其近邻的若干像素组成，求模板中所有像素的均值，再把该均值赋予当前像素点（x，y），作为处理后图像在该点上的灰度g（x，y），即g（x，y）=1/m ∑f（x，y） m为该模板中包含当前像素在内的像素总个数。</p>
+<p>​    <a href="https://zh.wikipedia.org/wiki/高斯模糊" target="_blank" rel="noopener">高斯滤波</a> 卷积核中间值大，周围越来越小</p>
+<p>3、Gamma校正</p>
+<p>​    简单点说就是为了处理后让图像看起来更清楚。具体看数字图像处理。3.2.3</p>
+<p>4、图像特征提取三大算法</p>
+<p>​    <a href="https://blog.csdn.net/hujingshuang/article/details/47337707" target="_blank" rel="noopener">HOG</a> 梯度方向直方图,hog+svm用于行人检测</p>
+<p>​    LBP 局部二值模式<a href="https://blog.csdn.net/zouxy09/article/details/7929531" target="_blank" rel="noopener">csdn</a>  <a href="https://blog.csdn.net/hujingshuang/article/details/47292721" target="_blank" rel="noopener">csdn</a></p>
+<p>​    Haar  <a href="https://blog.csdn.net/hujingshuang/article/details/47419505" target="_blank" rel="noopener">csdn</a> haar+adaboost人脸检测</p>
+<p>5、常用的插值方法</p>
+<p>​    最邻近内插法，双线性内插法，三次内插法。<a href="https://blog.csdn.net/coy_wang/article/details/5027872" target="_blank" rel="noopener">csdn</a></p>
+<p>6、常用的图像分割算法</p>
+<p>​    Graph Cut（图割）  <a href="https://blog.csdn.net/zouxy09/article/details/8532111" target="_blank" rel="noopener">csdn</a></p>
+<p>​    GrabCut  <a href="https://blog.csdn.net/zouxy09/article/details/8534954" target="_blank" rel="noopener">csdn</a></p>
+<p>​    Snake    <a href="https://blog.csdn.net/zouxy09/article/details/8712287" target="_blank" rel="noopener">csdn</a></p>
+<p>​    分水岭算法  <a href="https://blog.csdn.net/iracer/article/details/49225823" target="_blank" rel="noopener">csdn</a></p>
+<p>7、实现resize()函数</p>
+<p>​    <a href="https://blog.csdn.net/YZXnuaa/article/details/79626405" target="_blank" rel="noopener">csdn</a></p>
+<p>​    <a href="https://www.cnblogs.com/skyfsm/p/7578302.html" target="_blank" rel="noopener">博客园</a></p>
+<h1 id="编程题-和基础题："><a href="#编程题-和基础题：" class="headerlink" title="编程题 和基础题："></a>编程题 和基础题：</h1><p>1.链表 反转：<a href="https://blog.csdn.net/eggTargaryen/article/details/84990008" target="_blank" rel="noopener">csdn</a></p>
 <p>2.前序遍历，中序遍历，后序遍历的区别是根节点。</p>
 <p>​    前序遍历：根左右</p>
 <p>​    中序遍历：左根右</p>
@@ -63,6 +87,15 @@
 <p>5.tcp三次握手：<a href="https://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="noopener">主要看这第二张图</a></p>
 <p><a href="https://blog.csdn.net/sssnmnmjmf/article/details/68486261" target="_blank" rel="noopener">csdn比较细</a></p>
 <p>简单点说就是A向B发送一个同步请求（SYN），然后B要回复该请求，同时B也要发送一个同步请求，所以将B回复A的消息和B要发送的同步请求合并为一条消息，接着A要回复B的同步请求，所以一共三次握手，之所以要发两个同步请求是因为，A与B要互发消息。</p>
+<p>同理，四次挥手也是一样的， A向B发送一个关闭请求，B确认，随后B也向A发送一个关闭请求，A确认，一共四次。</p>
+<p>6.归并排序<a href="https://zh.wikipedia.org/wiki/归并排序" target="_blank" rel="noopener">wiki</a></p>
+<p>7.找到数组中两数字和为指定和</p>
+<p><a href="https://blog.csdn.net/woliuyunyicai/article/details/44222949" target="_blank" rel="noopener">csdn</a></p>
+<p>8.c++ map和set底层实现的数据结构是红黑树 <a href="http://luodw.cc/2015/11/19/STL-map/" target="_blank" rel="noopener">blog</a></p>
+<p>9、进程与线程的区别？</p>
+<p>​    进程是爹妈，管着众多的线程儿子。</p>
+<p>​    <a href="https://www.zhihu.com/question/25532384/answer/81152571" target="_blank" rel="noopener">知乎</a></p>
+<p>​    进程是cpu资源分配的最小单位，线程是cpu调度的最小单位。</p>
 <h1 id="机器学习："><a href="#机器学习：" class="headerlink" title="机器学习："></a>机器学习：</h1><p>1、bias与variance的含义？</p>
 <p><a href="https://zhuanlan.zhihu.com/p/44872686" target="_blank" rel="noopener">答案</a></p>
 <p>2、<a href="https://zhuanlan.zhihu.com/p/42740654" target="_blank" rel="noopener">Adaboost、GBDT与XGBoost的区别</a></p>
@@ -72,15 +105,15 @@
 <p>​    <a href="https://hit-scir.gitbooks.io/neural-networks-and-deep-learning-zh_cn/content/chap3/c3s1.html" target="_blank" rel="noopener">交叉熵</a></p>
 <h1 id="深度学习："><a href="#深度学习：" class="headerlink" title="深度学习："></a>深度学习：</h1><p>1、梯度消失/爆炸原因，以及解决方法。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/25631496" target="_blank" rel="noopener">原因</a>,，，，<a href="https://blog.csdn.net/qq_25737169/article/details/78847691" target="_blank" rel="noopener">这个也ok</a></p>
-<p>解决方法：使用ReLU代替sigmoid做激活函数，使用BN，使用残差网络。</p>
+<p>解决方法：使用ReLU代替sigmoid做激活函数，使用BN。</p>
 <p>2、防止过拟合有哪些方法，看之前的文章。</p>
 <p>3、手推BP</p>
 <p>之前bp可以看一下，这里一个<a href="https://zhuanlan.zhihu.com/p/39314998" target="_blank" rel="noopener">简化版本</a>。</p>
 <p>4、<a href="https://www.zhihu.com/question/34878706" target="_blank" rel="noopener">LSTM如何来避免梯度弥散和梯度爆炸？</a></p>
 <p>5、几种优化函数比较，<a href="https://zhuanlan.zhihu.com/p/32230623" target="_blank" rel="noopener">知乎</a></p>
 <p>​    sgd三宗罪：速度慢，会在沟壑两边持续震荡，容易陷入局部最优解。</p>
-<p>​    sgd with Momentum：引入一阶动量，抑制了sgd震荡的问题。</p>
-<p>​    sgd with Nesterov Acceleration:使sgd可以跳出局部最优解。</p>
+<p>​    sgd with Momentum：引入一阶动量，抑制了sgd震荡的问题。<a href="https://blog.csdn.net/u012968002/article/details/78579485" target="_blank" rel="noopener">相当于加了一个惯性</a></p>
+<p>​    sgd with Nesterov Acceleration:使sgd可以跳出局部最优解。<a href="https://zhuanlan.zhihu.com/p/22810533" target="_blank" rel="noopener">知乎</a></p>
 <p>​    AdaGrad：引入二阶动量，使得学习率变为自适应的。但容易造成训练提前终止。</p>
 <p>​    AdaDelta：改进了二阶动量，避免了AdaGrad训练提前终止的问题。</p>
 <p>​    Adam：同时引入了一阶动量和二阶动量。<a href="https://www.jiqizhixin.com/articles/2017-07-12?from=synced&amp;keyword=adam" target="_blank" rel="noopener">机器之心</a></p>
@@ -100,6 +133,44 @@
 <p>relu：优点：方便计算，因为导数是常数。收敛速度快。缓解了 梯度消失的问题</p>
 <p>缺点：可能出现神经元死亡，权重无法更新 的情况。</p>
 <p>lrelu：优点：避免了relu的神经元死亡 的现象。</p>
+<p>9、ResNet</p>
+<p>残差网络主要解决了网络退化的问题（随着网络的深度增加，准确度反而下降了）。而不是梯度消失。</p>
+<p>实线shortcut connections与虚线的区别。</p>
+<ul>
+<li>实线的Connection部分，表示通道相同，如上图的第一个粉色矩形和第三个粉色矩形，都是3x3x64的特征图，由于通道相同，所以采用计算方式为H(x)=F(x)+x</li>
+<li>虚线的的Connection部分，表示通道不同，如上图的第一个绿色矩形和第三个绿色矩形，分别是3x3x64和3x3x128的特征图，通道不同，采用的计算方式为H(x)=F(x)+Wx，其中W是卷积操作，用来调整x维度的。</li>
+</ul>
+<p>10、Mask R-CNN</p>
+<p>11、语义分割</p>
+<p>12、感受野</p>
+<p>​    定义：在卷积神经网络中，感受野的定义是 卷积神经网络每一层输出的特征图（feature map）上的像素点在<strong>原始图像</strong>上映射的区域大小。 ——博客园</p>
+<p>13、feature map size 计算</p>
+<p>​     h1=(h0+2*pad-kernel_size)/stride+1</p>
+<p>​     w1=(w0+2*pad-kernel_size)/stride+1</p>
+<p>当stride=1时，若pad=(kernel_size-1)/2,那么feature map size 不变。</p>
+<p>14、Inception网络特点</p>
+<p>​    <a href="https://zhuanlan.zhihu.com/p/30756181" target="_blank" rel="noopener">知乎</a></p>
+<p>​    在深度方向上叠加。</p>
+<p>​    目的：增加网络的宽度和深度，同时用尽量少的参数。</p>
+<p>​    用1X1卷积核来降低feature map深度，从而减少参数。</p>
+<p>15、权重初始化方法都有哪些？<a href="https://blog.csdn.net/mzpmzk/article/details/79839047" target="_blank" rel="noopener">csdn</a></p>
+<p>​    一般<strong>我们希望数据和参数的均值都为 0，输入和输出数据的方差一致。</strong></p>
+<p>​    一般有随机初始化，使用预训练模型的参数初始化。</p>
+<p>16、常见损失函数</p>
+<p>​    均方差，用于y是高斯分布。</p>
+<p>​    交叉熵，用于y是伯努利分布（01分布）</p>
+<p>​    //softmax loss ，多分类。</p>
+<p>17、人脸识别</p>
+<p>18、自动编码器</p>
+<p>​    自动编码器是一种有三层的神经网络：输入层、隐藏层（编码层）和解码层。该网络的目的是重构其输入，使其隐藏层学习到该输入的良好表征。</p>
+<p>19、数据不均衡如何处理？</p>
+<p>​    扩大数据集。如数据增广。或者把少数类地 数据复制几份，并适当加噪声。相当于新的样本了。</p>
+<p>​    加大小样本的损失。</p>
+<p>​    尝试其他分类算法如，决策树。</p>
+<p>​    </p>
+<p>20、1X1卷积核的作用</p>
+<p>​    <strong>1×1卷积核可以起到一个跨通道聚合的作用</strong>，</p>
+<p>​    <strong>所以进一步可以起到降维（或者升维）的作用，起到减少参数的目的</strong>。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
