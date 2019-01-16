@@ -77,6 +77,11 @@
 <p>​    GrabCut  <a href="https://blog.csdn.net/zouxy09/article/details/8534954" target="_blank" rel="noopener">csdn</a></p>
 <p>​    Snake    <a href="https://blog.csdn.net/zouxy09/article/details/8712287" target="_blank" rel="noopener">csdn</a></p>
 <p>​    分水岭算法  <a href="https://blog.csdn.net/iracer/article/details/49225823" target="_blank" rel="noopener">csdn</a></p>
+<p>​    区域生长算法  <a href="https://blog.csdn.net/qiuqchen/article/details/45127449" target="_blank" rel="noopener">csdn</a> 区域生长算法的基本思想是将有相似性质的像素点合并到一起。对每一个区域要先指定一个种子点作为生长的起点，然后将种子点周围领域的像素点和种子点进行对比，将具有相似性质的点合并起来继续向外生长，直到没有满足条件的像素被包括进来为止。这样一个区域的生长就完成了。这个过程中有几个关键的问题：</p>
+<p>1 给定种子点(种子点如何选取？)</p>
+<p>​      种子点的选取很多时候都采用人工交互的方法实现，也有用其他方式的，比如寻找物体并提取物体内部点或者利用其它算法找到的特征点作为种子点。</p>
+<p>2 确定在生长过程中能将相邻像素包括进来的准则</p>
+<p>​     这个准则很重要：例如包括灰度值的差值；彩色图像的颜色；梯度特征，包括梯度的方向和幅值特征。该点周围的区域特征，例如harr特征，也就是区域像素和特征。<a href="https://www.cnblogs.com/love6tao/p/5164608.html" target="_blank" rel="noopener">cnblogs</a></p>
 <p>7、实现resize()函数</p>
 <p>​    <a href="https://blog.csdn.net/YZXnuaa/article/details/79626405" target="_blank" rel="noopener">csdn</a></p>
 <p>​    <a href="https://www.cnblogs.com/skyfsm/p/7578302.html" target="_blank" rel="noopener">博客园</a></p>
